@@ -1,0 +1,192 @@
+/* Shadcn-like Minimalist Aesthetic */
+:root {
+    --background: #ffffff;
+    --foreground: #09090b;
+    --muted: #f4f4f5;
+    --muted-foreground: #71717a;
+    --border: #e4e4e7;
+    --primary: #18181b;
+    --primary-foreground: #fafafa;
+    --radius: 0.5rem;
+    
+    /* Override Bootstrap Fonts */
+    --bs-font-sans-serif: 'Satoshi', system-ui, -apple-system, sans-serif;
+    --bs-body-font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
+    --bs-heading-font-family: 'Satoshi', system-ui, -apple-system, sans-serif;
+}
+
+body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: 'Satoshi', system-ui, -apple-system, sans-serif !important;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.admin-header {
+    background-color: var(--background);
+    color: var(--foreground);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    height: 64px;
+    border-bottom: 1px solid var(--border);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1030;
+}
+.brand-logo {
+    width: 24px;
+    height: 24px;
+    background-color: var(--foreground);
+    border-radius: 4px;
+}
+.admin-header .app-title {
+    font-size: 1.125rem;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+/* Layout */
+.admin-wrapper {
+    display: flex;
+    min-height: calc(100vh - 64px);
+    width: 100%;
+    margin-top: 64px; /* offset for fixed header */
+}
+
+/* Sidebar */
+.admin-sidebar {
+    background-color: var(--background);
+    width: 240px;
+    height: calc(100vh - 64px);
+    border-right: 1px solid var(--border);
+    padding: 1.5rem 1rem;
+    flex-shrink: 0;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    z-index: 1020;
+}
+.admin-sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+.admin-sidebar a {
+    color: var(--muted-foreground);
+    text-decoration: none;
+    font-size: 0.875rem;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+    display: block;
+    border-radius: calc(var(--radius) - 2px);
+    transition: all 0.2s ease;
+}
+.status-badge {
+    padding: 0.35em 0.65em;
+    font-size: 0.75em;
+    font-weight: 600;
+    border-radius: 0.25rem;
+}
+
+.admin-main-content {
+    margin-left: 240px;
+    width: calc(100% - 240px);
+    padding: 2rem;
+}
+.admin-sidebar a:hover {
+    background-color: var(--muted);
+    color: var(--foreground);
+}
+.admin-sidebar a.active {
+    background-color: var(--muted);
+    color: var(--foreground);
+    font-weight: 600;
+}
+
+/* Main Content */
+.admin-main-content {
+    padding: 2rem 2.5rem;
+    flex: 1 1 0%;
+    background-color: var(--background);
+}
+
+/* Dashboard Cards (Shadcn Style) */
+.card {
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+}
+.card-header {
+    background-color: transparent !important;
+    border-bottom: 1px solid var(--border);
+    padding: 1.5rem;
+}
+.card-header h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--foreground) !important;
+    letter-spacing: -0.02em;
+}
+.card-body {
+    padding: 1.5rem;
+}
+
+/* Shadcn Buttons */
+.btn {
+    font-weight: 500;
+    font-size: 0.875rem;
+    border-radius: calc(var(--radius) - 2px);
+    padding: 0.5rem 1rem;
+    transition: all 0.15s ease;
+    border: 1px solid transparent;
+}
+.btn-primary {
+    background-color: var(--primary) !important;
+    color: var(--primary-foreground) !important;
+}
+.btn-primary:hover {
+    background-color: rgba(24, 24, 27, 0.9) !important;
+}
+.btn-success {
+    background-color: #18181b !important;
+    color: #fff !important;
+    border: 1px solid #18181b;
+}
+.btn-success:hover {
+    background-color: #27272a !important;
+}
+.btn-warning, .btn-info {
+    background-color: #fff !important;
+    color: #18181b !important;
+    border: 1px solid var(--border) !important;
+}
+.btn-warning:hover, .btn-info:hover {
+    background-color: var(--muted) !important;
+}
+
+@media (max-width: 900px) {
+    .admin-sidebar {
+        width: 64px;
+        padding: 1rem 0.5rem;
+    }
+    .admin-sidebar a {
+        font-size: 0;
+        text-align: center;
+    }
+    .admin-sidebar a i {
+        font-size: 1.2rem;
+    }
+    .admin-main-content {
+        padding: 1.5rem 1rem;
+    }
+}
