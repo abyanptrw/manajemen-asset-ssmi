@@ -1,1 +1,0 @@
-# manajemen-asset-ssmi
